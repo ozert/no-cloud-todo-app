@@ -28,6 +28,9 @@ todo_items = [item for item in config_content]
 new_entry = st.text_input('Add New Item',"")
 if new_entry != "":
     todo_items.append((new_entry,False))
+
+todo_items.sort(key=lambda x: x[1])
+
 with st.form("my_form"):
     checkboxes = [st.checkbox(todo_item, value=status) for todo_item,status in todo_items]
     submitted = st.form_submit_button("Submit")
